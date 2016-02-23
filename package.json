@@ -1,0 +1,22 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tscanlin/sandbox.git"
+  },
+  "keywords": [
+    "sandbox"
+  ],
+  "author": "Tim Scanlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tscanlin/sandbox/issues"
+  },
+  "homepage": "https://github.com/tscanlin/sandbox#readme"
+}
