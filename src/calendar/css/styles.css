@@ -1,16 +1,39 @@
-
-.day {
-  background-color: blue;
+body {
+  line-height: 1;
 }
 
-.hour-col {
+.grid {
+  position: relative;
+}
+
+.day-col {
+
+}
+
+.relative {
+  position: relative;
+}
+
+.event {
+  background-color: teal;
+  min-height: 10px;
+  position: absolute;
+  width: 100%;
+}
+
+.inline-block {
   display: inline-block;
 }
 
+.valign-top {
+  vertical-align: top;
+}
+
 .hour-slot {
-  padding: 5px;
+  /*padding: 5px;*/
   height: 50px;
   width: 100px;
+  position: relative;
   text-align: right;
 }
 

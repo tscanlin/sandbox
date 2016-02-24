@@ -9,11 +9,13 @@ import Hours from './hours.jsx';
 
 ReactDOM.render(
   <div className="grid">
-    <Hours></Hours>
+    <div className="inline-block valign-top">
+      <Hours label="true"></Hours>
+    </div>
     {data.timeslots.map((slot) => {
       // "key" is needed in addition to "id" since key is used for tracking and
       // isn't passed down, but id can be passed down to a child component.
-      return <Day key={slot.id} id={slot.id}></Day>
+      return <Day key={slot.id} id={slot.id} events={data.timeslots}></Day>
     })}
   </div>,
   document.getElementById('example')

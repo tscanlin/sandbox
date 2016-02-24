@@ -24,16 +24,26 @@ export default React.createClass({
     var hours = buildHoursArray();
 
     return (
-      <div className="hours-col">
+      <div className="inline-block">
         {hours.map((hour, i) => {
-          return (
-            <div className="hour-slot border-top" key={i}>
+          var label = (
+            <div>
               <span>
                 {hour}
               </span>
               <span>
                 {i >= 12 ? 'pm' : 'am'}
               </span>
+            </div>
+          );
+
+          if (!this.props.label) {
+            label = null;
+          }
+
+          return (
+            <div className="hour-slot border-top" key={i}>
+              {label}
             </div>
           );
         })}
