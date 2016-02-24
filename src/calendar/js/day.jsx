@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Hours from './hours.jsx';
+const HOUR_HEIGHT = 41;
 
 export default React.createClass({
   render() {
@@ -11,9 +12,8 @@ export default React.createClass({
       var startDate = new Date(event.start);
       var endDate = new Date(event.end);
       // var topPercent = ((startDate.getHours() * 60) + startDate.getMinutes()) / 1440 * 100;
-      var hourHeight = 41;
-      var top = (startDate.getHours() + (startDate.getMinutes() / 60)) * hourHeight;
-      var bottom = (endDate.getHours() + (endDate.getMinutes() / 60)) * hourHeight;
+      var top = (startDate.getHours() + (startDate.getMinutes() / 60)) * HOUR_HEIGHT;
+      var bottom = (endDate.getHours() + (endDate.getMinutes() / 60)) * HOUR_HEIGHT;
       // console.log(top)
       return {
         bottom: 'calc(100% - ' + bottom + 'px)',
