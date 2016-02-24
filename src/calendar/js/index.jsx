@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import data from 'json!../data/day_3.json';
+import data from 'json!../data/day_1.json';
 import Day from './day.jsx';
 import Hours from './hours.jsx';
 
@@ -24,6 +24,7 @@ var days = Object.keys(nestedByDay)
 ReactDOM.render(
   <div className="grid">
     <div className="inline-block valign-top">
+      <div className="label"></div>
       <Hours label="true" />
     </div>
 

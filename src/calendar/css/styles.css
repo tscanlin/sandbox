@@ -11,19 +11,33 @@ body {
 }
 
 .day-col {
-
+  border-left: solid 1px #CCC;
 }
 
 .relative {
   position: relative;
 }
 
+.center {
+  text-align: center;
+}
+
+.label {
+  height: 20px;
+}
+
+.micro {
+  font-size: 11px;
+}
+
 .event {
-  background-color: teal;
+  color: black;
+  background-color: rgba(100, 150, 200, 0.7);
   border: solid 1px #05401E;
   min-height: 10px;
   position: absolute;
-  opacity: 0.7;
+  overflow: hidden;
+  padding: 3px;
   width: 100%;
 }
 

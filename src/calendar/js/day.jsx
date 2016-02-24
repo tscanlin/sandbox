@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 
 import Hours from './hours.jsx';
 const HOUR_HEIGHT = 40;
+const LABEL_HEIGHT = 20;
+
+const WEEK_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default React.createClass({
   render() {
@@ -13,8 +16,8 @@ export default React.createClass({
       let endDate = new Date(event.end);
 
       // Figure out top and bottom measurements.
-      let top = (startDate.getHours() + (startDate.getMinutes() / 60)) * HOUR_HEIGHT;
-      let bottom = (endDate.getHours() + (endDate.getMinutes() / 60)) * HOUR_HEIGHT;
+      let top = ((startDate.getHours() + (startDate.getMinutes() / 60)) * HOUR_HEIGHT) + LABEL_HEIGHT;
+      let bottom = ((endDate.getHours() + (endDate.getMinutes() / 60)) * HOUR_HEIGHT) + LABEL_HEIGHT;
 
       // Compare the event start and end times to other events to find overlaps.
       var widthPercent = 100;
@@ -46,13 +49,26 @@ export default React.createClass({
       }
     }
 
+    var day = new Date(this.props.id)
     return (
-      <div className="inline-block relative">
+      <div className="day-col inline-block relative">
+        <div className="label center">
+          {WEEK_DAYS[day.getDay()]}
+        </div>
+
         <Hours />
 
         <div className="events">
           {events.map((event, i) => {
-            return <div key={event.id} className="event" style={eventStyle(event)}>{event.name}</div>
+            console.log(event)
+            return <div key={event.id} className="event" style={eventStyle(event)}>
+              {event.activity_name}
+              <div className="micro">
+                <span>Available spots: </span>
+                <span>{event.available_spots}</span> /
+                <span>{event.max_guests}</span>
+              </div>
+            </div>
           })}
         </div>
       </div>
