@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   line-height: 1;
 }
@@ -16,7 +20,7 @@ body {
 
 .event {
   background-color: teal;
-  border: solid 2px black;
+  border: solid 1px #05401E;
   min-height: 10px;
   position: absolute;
   opacity: 0.7;
@@ -31,10 +35,13 @@ body {
   vertical-align: top;
 }
 
+.soft {
+  padding: 5px 20px;
+}
+
 .hour-slot {
-  /*padding: 5px;*/
   height: 40px;
-  width: 100px;
+  min-width: 200px;
   position: relative;
   text-align: right;
 }

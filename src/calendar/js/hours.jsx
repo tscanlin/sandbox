@@ -27,7 +27,7 @@ export default React.createClass({
       <div className="inline-block">
         {hours.map((hour, i) => {
           var label = (
-            <div>
+            <div className="soft">
               <span>
                 {hour}
               </span>
