@@ -5,7 +5,9 @@ import Day from './day.jsx';
 import Hours from './hours.jsx';
 // console.log(Day, data)
 
-
+var nestedByDay = data.timeslots.reduce((c, p) => {
+  console.log(c, p)
+}, {});
 
 ReactDOM.render(
   <div className="grid">
