@@ -1,0 +1,10 @@
+
+.day {
+  background-color: blue;
+}
+
+
+.hour-slot {
+  height: 50px;
+  width: 100px;
+}
