@@ -4,7 +4,8 @@
   "description": "sandbox",
   "main": "index.js",
   "scripts": {
-    "start": "cp ./src/calendar/html/index.html ./build/calendar/index.html && cp ./src/calendar/css/styles.css ./build/calendar/css/styles.css && start ./build/calendar/index.html && webpack --watch --progress --colors ./src/calendar/js/index.jsx ./build/calendar/js/bundle.js"
+    "start": "cp ./src/calendar/html/index.html ./build/calendar/index.html && cp ./src/calendar/css/styles.css ./build/calendar/css/styles.css && start ./build/calendar/index.html && webpack --watch --progress --colors ./src/calendar/js/index.jsx ./build/calendar/js/bundle.js",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "babel-preset-react": "^6.5.0",
     "eslint": "^2.2.0",
     "eslint-plugin-react": "^4.0.0",
+    "gh-pages": "^0.10.0",
     "webpack": "^1.12.14"
   }
 }
