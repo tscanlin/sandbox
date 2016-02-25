@@ -1,55 +1,50 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import Hours from './hours.jsx';
+
 const HOUR_HEIGHT = 40;
 const LABEL_HEIGHT = 20;
-
 const WEEK_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 export default React.createClass({
   render() {
-    var events = this.props.events;
+    let events = this.props.events;
 
     function eventStyle(event) {
       let startDate = new Date(event.start);
       let endDate = new Date(event.end);
 
       // Figure out top and bottom measurements.
-      let top = ((startDate.getHours() + (startDate.getMinutes() / 60)) * HOUR_HEIGHT) + LABEL_HEIGHT;
-      let bottom = ((endDate.getHours() + (endDate.getMinutes() / 60)) * HOUR_HEIGHT) + LABEL_HEIGHT;
+      let start = ((startDate.getHours() + (startDate.getMinutes() / 60)) * HOUR_HEIGHT) + LABEL_HEIGHT;
+      let end = ((endDate.getHours() + (endDate.getMinutes() / 60)) * HOUR_HEIGHT) + LABEL_HEIGHT;
 
       // Compare the event start and end times to other events to find overlaps.
-      var widthPercent = 100;
-      var collisions = events.filter((evt) => {
+      let overlaps = events.filter((evt) => {
         return (new Date(event.start) < new Date(evt.end) && new Date(event.start) >= new Date(evt.start))
           || (new Date(event.end) <= new Date(evt.end) && new Date(event.end) > new Date(evt.start))
       });
 
-      // Get the index of the event.
-      var index = 0;
-      var indexes = collisions.map((evt) => evt.index);
+      // Set the width based on the number of overlaps.
+      let widthPercent = 100;
+      widthPercent = widthPercent / (overlaps.length);
+
+      // Get/set the index of the event for positioning.
+      let index = 0;
+      let indexes = overlaps.map((evt) => evt.index);
       while (indexes.indexOf(index) !== -1) {
         index++;
       }
       event.index = index;
 
-      // If an event has the same index as another event then
-      // var duplicateIndex = collisions.filter((evt) => {
-      //   return evt.index === index;
-      // })
-      widthPercent = widthPercent / (collisions.length);
-      // console.log(index, event, collisions, collisions.length, duplicateIndex);
-
       return {
-        bottom: 'calc(100% - ' + bottom + 'px)',
-        top: top + 'px',
+        bottom: 'calc(100% - ' + end + 'px)',
+        top: start + 'px',
         width: widthPercent + '%',
         left: (index * widthPercent) + '%'
       }
     }
 
-    var day = new Date(this.props.id)
+    let day = new Date(this.props.id)
     return (
       <div className="day-col inline-block relative">
         <div className="label center">
@@ -60,7 +55,6 @@ export default React.createClass({
 
         <div className="events">
           {events.map((event, i) => {
-            console.log(event)
             return <div key={event.id} className="event" style={eventStyle(event)}>
               {event.activity_name}
               <div className="micro">

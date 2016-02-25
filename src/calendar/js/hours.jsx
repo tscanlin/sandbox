@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 const HOURS_IN_DAY = 24;
 
 function buildHoursArray() {
-  var i = 12;
-  var hours = [];
+  let i = 12;
+  let hours = [];
 
   // Build hours array.
   while (i <= 12 && hours.length < HOURS_IN_DAY) {
@@ -21,12 +21,12 @@ function buildHoursArray() {
 
 export default React.createClass({
   render() {
-    var hours = buildHoursArray();
+    let hours = buildHoursArray();
 
     return (
       <div className="inline-block">
         {hours.map((hour, i) => {
-          var label = (
+          let label = (
             <div className="soft">
               <span>
                 {hour}

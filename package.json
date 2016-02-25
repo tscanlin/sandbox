@@ -4,8 +4,7 @@
   "description": "sandbox",
   "main": "index.js",
   "scripts": {
-    "start": "cp ./src/calendar/html/index.html ./build/calendar/index.html && cp ./src/calendar/css/styles.css ./build/calendar/css/styles.css && webpack --watch --progress --colors ./src/calendar/js/index.jsx ./build/calendar/js/bundle.js",
-    "test": "gulp test"
+    "start": "cp ./src/calendar/html/index.html ./build/calendar/index.html && cp ./src/calendar/css/styles.css ./build/calendar/css/styles.css && start ./build/calendar/index.html && webpack --watch --progress --colors ./src/calendar/js/index.jsx ./build/calendar/js/bundle.js"
   },
   "repository": {
     "type": "git",
